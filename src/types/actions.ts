@@ -1,4 +1,9 @@
-import { GET_MOVIES, GET_MOVIES_F, GET_MOVIES_R } from '../store/actionTypes';
+import {
+  GET_MOVIES,
+  GET_MOVIES_F,
+  GET_MOVIES_R,
+  SEARCH_MOVIE,
+} from '../store/actionTypes';
 
 import { MovieType } from './state';
 
@@ -20,7 +25,13 @@ export type ActionGetMovieRType = {
   payload: unknown;
 };
 
+export type ActionSearchMovieType = {
+  type: typeof SEARCH_MOVIE;
+  payload: string;
+};
+
 export type ActionMovieType =
   | ActionGetMovieType
   | ActionGetMovieFType
-  | ActionGetMovieRType;
+  | ActionGetMovieRType
+  | ActionSearchMovieType;

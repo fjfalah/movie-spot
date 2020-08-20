@@ -1,6 +1,11 @@
 import { ActionMovieType } from '../../types/actions';
 import { MovieStateType } from '../../types/state';
-import { GET_MOVIES, GET_MOVIES_F, GET_MOVIES_R } from '../actionTypes';
+import {
+  GET_MOVIES,
+  GET_MOVIES_F,
+  GET_MOVIES_R,
+  SEARCH_MOVIE,
+} from '../actionTypes';
 
 const initialState: MovieStateType = {
   page: 1,
@@ -8,6 +13,7 @@ const initialState: MovieStateType = {
   keyword: 'batman',
   error: null,
   loading: false,
+  hasMore: true,
 };
 
 const movieReducer = (
@@ -32,7 +38,17 @@ const movieReducer = (
       return {
         ...state,
         loading: false,
+        hasMore: false,
         error: action.payload,
+      };
+    case SEARCH_MOVIE:
+      return {
+        ...state,
+        page: 1,
+        items: [],
+        keyword: action.payload,
+        error: null,
+        loading: false,
       };
     default:
       return state;

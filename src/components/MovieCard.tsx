@@ -80,7 +80,7 @@ const ButtonWrapper = styled.div`
 `;
 
 const MovieCard: React.FC<MovieCardType> = (props) => {
-  const { imdbID, poster, title, type, year, onClickPoster } = props;
+  const { imdbID, poster, title, year, onClickPoster } = props;
   return (
     <Root>
       <Poster url={poster} onClick={onClickPoster} />

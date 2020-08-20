@@ -45,4 +45,5 @@ export type MovieStateType = {
   items?: MovieType[];
   loading: boolean;
   error: unknown;
+  hasMore: boolean;
 };

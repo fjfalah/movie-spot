@@ -2,6 +2,7 @@ import {
   getMoviesAction,
   getMoviesActionF,
   getMoviesActionR,
+  searchMoviesAction,
 } from '../store/actions/movieAction';
 import apiRequest from '../utils/api';
 
