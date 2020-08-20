@@ -9,6 +9,8 @@ import {
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
+import { IS_PRODUCTION } from '../config';
+
 import reducers from './reducers';
 
 type ConfigureStoreType = Store<
@@ -22,7 +24,7 @@ type ConfigureStoreType = Store<
 
 let store;
 const middlewares = [];
-if (process.env.NODE_ENV !== 'production') {
+if (!IS_PRODUCTION) {
   middlewares.push(logger);
 }
 middlewares.push(thunk);
@@ -54,3 +56,5 @@ export const initializeStore = (preloadedState = {}): ConfigureStoreType => {
 export const useStore = (initialState = {}): ConfigureStoreType => {
   return useMemo(() => initializeStore(initialState), [initialState]);
 };
+
+export type AppDispatch = typeof store.dispatch;

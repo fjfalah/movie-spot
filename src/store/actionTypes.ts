@@ -1,4 +1,7 @@
-export const PING = 'PING';
-export const PING_F = 'PING_F';
-export const PONG = 'PONG';
-export const PONG_F = 'PONG_F';
+export const GET_MOVIES = 'GET_MOVIES';
+export const GET_MOVIES_F = 'GET_MOVIES_F';
+export const GET_MOVIES_R = 'GET_MOVIES_R';
+
+export const GET_MOVIE_DETAIL = 'GET_MOVIE_DETAIL';
+export const GET_MOVIE_DETAIL_F = 'GET_MOVIE_DETAIL_F';
+export const GET_MOVIE_DETAIL_R = 'GET_MOVIE_DETAIL_R';

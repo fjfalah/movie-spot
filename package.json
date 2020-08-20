@@ -23,6 +23,7 @@
     "redux-thunk": "^2.3.0",
     "shell-quote": "^1.7.2",
     "styled-components": "^5.1.1",
+    "typesafe-actions": "^5.1.0",
     "yarn": "^1.22.4"
   },
   "devDependencies": {

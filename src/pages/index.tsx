@@ -1,13 +1,39 @@
-import React from 'react';
+import { NextPage } from 'next';
+import Link from 'next/link';
+import React, { useEffect } from 'react';
+import { connect, useDispatch } from 'react-redux';
 
 import { Section, PageDescription } from '../components';
+import { getMovies } from '../services/movieService';
+import { MovieStateType } from '../types/state';
 
-const HomePage: React.FC = () => {
+type HomeType = {
+  movies: MovieStateType;
+};
+
+const HomePage: NextPage<HomeType> = ({ movies }) => {
+  const dispatch = useDispatch();
+  const { keyword } = movies;
+  useEffect(() => {
+    dispatch(getMovies(keyword, 1));
+  }, [dispatch, keyword]);
   return (
     <PageDescription title="Home">
-      <Section>home</Section>
+      <Section>
+        {(movies?.items || []).map((item) => {
+          return (
+            <Link href="/[id]" as={`/${item.imdbID}`} key={item.imdbID}>
+              {item.Title}
+            </Link>
+          );
+        })}
+      </Section>
     </PageDescription>
   );
 };
 
-export default HomePage;
+const mapStateToProps = (state) => ({
+  movies: state.movies,
+});
+
+export default connect(mapStateToProps)(HomePage);
