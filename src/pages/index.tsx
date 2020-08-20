@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
 import {
@@ -12,6 +12,8 @@ import {
   Text,
   Box,
 } from '../components';
+import ModalLayout from '../components/Modal/ModalLayout';
+import ModalPreviewPoster from '../components/Modal/PreviewPoster';
 import { getMovies } from '../services/movieService';
 import { searchMoviesAction } from '../store/actions/movieAction';
 import styled, { theme } from '../themes';
@@ -46,6 +48,8 @@ const MovieNotFound = styled.div`
 `;
 
 const HomePage: NextPage<HomeType> = ({ movies }) => {
+  const [isShowModalZoom, setIsShowModalZoom] = useState(false);
+  const [selectedPoster, setSelectedPoster] = useState(null);
   const dispatch = useDispatch();
   const { keyword, items, page, hasMore } = movies;
 
@@ -62,6 +66,15 @@ const HomePage: NextPage<HomeType> = ({ movies }) => {
     },
     [dispatch]
   );
+
+  const handleZoomPoster = useCallback(
+    (poster) => {
+      setIsShowModalZoom(!isShowModalZoom);
+      setSelectedPoster(poster);
+    },
+    [isShowModalZoom]
+  );
+
   useEffect(() => {
     if (items.length === 0) {
       dispatch(getMovies(keyword, 1));
@@ -105,12 +118,19 @@ const HomePage: NextPage<HomeType> = ({ movies }) => {
                   year={Year}
                   type={Type}
                   key={imdbID}
+                  onClickPoster={() => handleZoomPoster(Poster)}
                 />
               );
             })}
           </MovieWrapper>
         </InfiniteScroll>
       </Section>
+      {isShowModalZoom && selectedPoster && (
+        <ModalPreviewPoster
+          poster={selectedPoster}
+          onClose={() => setIsShowModalZoom(!isShowModalZoom)}
+        />
+      )}
     </PageDescription>
   );
 };
