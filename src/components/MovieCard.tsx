@@ -40,7 +40,7 @@ const Poster = styled.div<{ url?: string }>`
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-  cursor: zoom-in;
+  cursor: ${(props) => (props.url === 'N/A' ? 'default' : 'zoom-in')};
 `;
 
 const YearLabel = styled.label`
@@ -81,9 +81,10 @@ const ButtonWrapper = styled.div`
 
 const MovieCard: React.FC<MovieCardType> = (props) => {
   const { imdbID, poster, title, year, onClickPoster } = props;
+  const isNoPoster = poster === 'N/A';
   return (
     <Root>
-      <Poster url={poster} onClick={onClickPoster} />
+      <Poster url={poster} onClick={isNoPoster ? () => null : onClickPoster} />
       <YearLabel>{year}</YearLabel>
       <ContentWrapper>
         <TitleWrapper>
