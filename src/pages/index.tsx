@@ -1,19 +1,38 @@
 import { NextPage } from 'next';
-import Link from 'next/link';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { connect, useDispatch } from 'react-redux';
 
-import { Section, PageDescription } from '../components';
+import {
+  Section,
+  PageDescription,
+  MovieCard,
+  InfiniteScroll,
+  Loading,
+} from '../components';
 import { getMovies } from '../services/movieService';
+import styled from '../themes';
 import { MovieStateType } from '../types/state';
 
 type HomeType = {
   movies: MovieStateType;
 };
 
+const MovieWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
 const HomePage: NextPage<HomeType> = ({ movies }) => {
+  const [hasMoreDataLoad, setHasMoreDataLoad] = useState(true);
   const dispatch = useDispatch();
-  const { keyword, items } = movies;
+  const { keyword, items, page } = movies;
+
+  const handleLoadMore = useCallback(() => {
+    dispatch(getMovies(keyword, page + 1));
+  }, [dispatch, keyword, page]);
+
   useEffect(() => {
     if (items.length === 0) {
       dispatch(getMovies(keyword, 1));
@@ -22,13 +41,27 @@ const HomePage: NextPage<HomeType> = ({ movies }) => {
   return (
     <PageDescription title="Home">
       <Section>
-        {(movies?.items || []).map((item) => {
-          return (
-            <Link href="/[id]" as={`/${item.imdbID}`} key={item.imdbID}>
-              {item.Title}
-            </Link>
-          );
-        })}
+        <InfiniteScroll
+          onLoadMore={handleLoadMore}
+          hasMore={hasMoreDataLoad}
+          loader={<Loading />}
+        >
+          <MovieWrapper>
+            {(movies?.items || []).map((item) => {
+              const { Poster, Title, Type, Year, imdbID } = item;
+              return (
+                <MovieCard
+                  title={Title}
+                  imdbID={imdbID}
+                  poster={Poster}
+                  year={Year}
+                  type={Type}
+                  key={imdbID}
+                />
+              );
+            })}
+          </MovieWrapper>
+        </InfiniteScroll>
       </Section>
     </PageDescription>
   );

@@ -72,6 +72,7 @@ export const MoviePoster = styled.div<{ url?: string }>`
   background-size: auto 100%;
   background-position: center;
   box-shadow: ${(props) => props.theme.boxShadow};
+  background-color: ${(props) => props.theme.color.grey};
   border-radius: 12px;
   position: relative;
   overflow: hidden;

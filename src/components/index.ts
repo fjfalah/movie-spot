@@ -1,6 +1,9 @@
 export { default as Box } from './Box';
 export { default as Button } from './Button';
 export { default as GlobalStyles } from './GlobalStyles';
+export { default as InfiniteScroll } from './InfiniteScroll';
+export { default as Loading } from './Loading';
+export { default as MovieCard } from './MovieCard';
 export { default as PageDescription } from './PageDescription';
 export { default as Pill } from './Pill';
 export { default as Section } from './Section';

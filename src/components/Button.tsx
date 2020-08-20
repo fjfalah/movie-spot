@@ -11,8 +11,15 @@ const Button = styled.button`
   outline: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: 0.2s all ease;
+  box-shadow: ${(props) => props.theme.boxShadow};
+
   &:focus {
     outline: none;
+  }
+
+  &:hover {
+    box-shadow: ${(props) => props.theme.boxShadowHover};
   }
 `;
 
