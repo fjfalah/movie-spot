@@ -25,7 +25,7 @@ export const getMovies = (keyword: string, page: number) => {
   };
 };
 
-export const getMovieDetail = (id: string) => {
+export const getMovieDetail = (id: string | string[]) => {
   return apiRequest({
     method: 'GET',
     uri: '/',

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '../themes';
 
 const Section = styled.section`
   padding: 40px 100px;

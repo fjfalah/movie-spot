@@ -13,10 +13,12 @@ type HomeType = {
 
 const HomePage: NextPage<HomeType> = ({ movies }) => {
   const dispatch = useDispatch();
-  const { keyword } = movies;
+  const { keyword, items } = movies;
   useEffect(() => {
-    dispatch(getMovies(keyword, 1));
-  }, [dispatch, keyword]);
+    if (items.length === 0) {
+      dispatch(getMovies(keyword, 1));
+    }
+  }, [dispatch, keyword, items]);
   return (
     <PageDescription title="Home">
       <Section>
