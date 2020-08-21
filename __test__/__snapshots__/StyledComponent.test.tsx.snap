@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test - Component Box Should has width and height 1`] = `
+"<styled.div width=\\"10px\\" height=\\"10px\\" backgroundColor=\\"red\\">
+  <div width=\\"10px\\" height=\\"10px\\" className=\\"sc-AxjAm kLHCDb\\" />
+</styled.div>"
+`;
+
+exports[`Test - Component Input should has value 1`] = `"<input defaultValue=\\"Batman\\" className=\\"sc-AxhCb kyYauG\\" />"`;
+
+exports[`Test - Component InputSearch calls onSubmit prop function when form is submitted 1`] = `
+"<form onSubmit={[Function: mockConstructor]} className=\\"sc-AxhUy iRkoav\\">
+  <Styled(styled.input) type=\\"text\\" name=\\"search\\" defaultValue=\\"Batman\\">
+    <input type=\\"text\\" name=\\"search\\" defaultValue=\\"Batman\\" className=\\"sc-AxhCb sc-AxheI gVBdlz\\" />
+  </Styled(styled.input)>
+  <Styled(styled.button) type=\\"submit\\">
+    <button type=\\"submit\\" className=\\"sc-AxirZ sc-AxgMl bYfJPD\\">
+      Search
+    </button>
+  </Styled(styled.button)>
+</form>"
+`;
+
+exports[`Test - Component MovieCard should has props 1`] = `
+"<MovieCard imdbID=\\"123\\" poster=\\"https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\\" title=\\"Batman vs Superman\\" year=\\"2016\\" type=\\"test\\">
+  <styled.div>
+    <div className=\\"sc-fzoLsD fhjtzk\\">
+      <styled.div url=\\"https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg\\" onClick={[undefined]} className=\\"poster\\">
+        <div onClick={[undefined]} className=\\"sc-fzpans hwcKCS poster\\" />
+      </styled.div>
+      <styled.label>
+        <label className=\\"sc-fzplWN ZLyjU\\">
+          2016
+        </label>
+      </styled.label>
+      <styled.div>
+        <div className=\\"sc-fznyAO gEnKLi\\">
+          <styled.div>
+            <div className=\\"sc-fznKkj fQiBHL\\">
+              <Styled(styled.p) size=\\"16px\\" weight=\\"bold\\" className=\\"title\\">
+                <p size=\\"16px\\" className=\\"sc-fzozJi sc-fznZeY czkRfR title\\">
+                  Batman vs Superman
+                </p>
+              </Styled(styled.p)>
+            </div>
+          </styled.div>
+          <styled.div>
+            <div className=\\"sc-fzokOt eXkiqi\\">
+              <Link href=\\"/[id]\\" as=\\"/123\\" passHref={true}>
+                <a onClick={[Function: onClick]} onMouseEnter={[Function (anonymous)]} href=\\"/123\\">
+                  <styled.button>
+                    <button className=\\"sc-AxirZ bdZEKS\\">
+                      DETAIL
+                    </button>
+                  </styled.button>
+                </a>
+              </Link>
+            </div>
+          </styled.div>
+        </div>
+      </styled.div>
+    </div>
+  </styled.div>
+</MovieCard>"
+`;
+
+exports[`Test - Component Pill Should has color and background value 1`] = `
+"<styled.label color=\\"#ffffff\\" background=\\"red\\">
+  <label color=\\"#ffffff\\" className=\\"sc-fzqBZW iJKlZl\\">
+    Batman
+  </label>
+</styled.label>"
+`;
+
+exports[`Test - Component Section should has children 1`] = `
+"<section className=\\"sc-fzqNJr fgapPO\\">
+  <styled.div>
+    <div className=\\"sc-AxjAm gINqhJ\\" />
+  </styled.div>
+  <styled.div>
+    <div className=\\"sc-AxjAm gINqhJ\\" />
+  </styled.div>
+</section>"
+`;
+
+exports[`Test - Component Text Should has color, size and weight value 1`] = `
+"<styled.p color=\\"#000000\\" size=\\"20px\\" weight=\\"bold\\">
+  <p color=\\"#000000\\" size=\\"20px\\" className=\\"sc-fzozJi iMRFzr\\">
+    Hello, World!
+  </p>
+</styled.p>"
+`;
+
+exports[`Test - Component Theme Provider should works with checking color 1`] = `
+"<ThemeProvider theme={{...}}>
+  <styled.button>
+    <button className=\\"sc-AxirZ bdZEKS\\">
+      test
+    </button>
+  </styled.button>
+</ThemeProvider>"
+`;

@@ -84,17 +84,23 @@ const MovieCard: React.FC<MovieCardType> = (props) => {
   const isNoPoster = poster === 'N/A';
   return (
     <Root>
-      <Poster url={poster} onClick={isNoPoster ? () => null : onClickPoster} />
+      <Poster
+        url={poster}
+        onClick={isNoPoster ? () => null : onClickPoster}
+        className="poster"
+      />
       <YearLabel>{year}</YearLabel>
       <ContentWrapper>
         <TitleWrapper>
-          <Title size="16px" weight="bold">
+          <Title size="16px" weight="bold" className="title">
             {title}
           </Title>
         </TitleWrapper>
         <ButtonWrapper>
-          <Link href="/[id]" as={`/${imdbID}`}>
-            <Button>DETAIL</Button>
+          <Link href="/[id]" as={`/${imdbID}`} passHref>
+            <a>
+              <Button>DETAIL</Button>
+            </a>
           </Link>
         </ButtonWrapper>
       </ContentWrapper>
